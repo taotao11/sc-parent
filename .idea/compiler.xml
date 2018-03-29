@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sc-api" />
+        <module name="sc-auth" />
+        <module name="sc-common" />
+        <module name="sc-config" />
+        <module name="sc-eureka" />
+        <module name="sc-gerna" />
+        <module name="sc-user" />
+        <module name="sc-zuul" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sc-api" target="1.8" />
+      <module name="sc-auth" target="1.8" />
+      <module name="sc-common" target="1.8" />
+      <module name="sc-config" target="1.8" />
+      <module name="sc-eureka" target="1.8" />
+      <module name="sc-gerna" target="1.8" />
+      <module name="sc-parent" target="1.8" />
+      <module name="sc-user" target="1.8" />
+      <module name="sc-zuul" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

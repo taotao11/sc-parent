@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/sc-api/sc-api.iml" filepath="$PROJECT_DIR$/sc-api/sc-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-auth/sc-auth.iml" filepath="$PROJECT_DIR$/sc-auth/sc-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-common/sc-common.iml" filepath="$PROJECT_DIR$/sc-common/sc-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-config/sc-config.iml" filepath="$PROJECT_DIR$/sc-config/sc-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-eureka/sc-eureka.iml" filepath="$PROJECT_DIR$/sc-eureka/sc-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-gerna/sc-gerna.iml" filepath="$PROJECT_DIR$/sc-gerna/sc-gerna.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-parent.iml" filepath="$PROJECT_DIR$/sc-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-user/sc-user.iml" filepath="$PROJECT_DIR$/sc-user/sc-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-zuul/sc-zuul.iml" filepath="$PROJECT_DIR$/sc-zuul/sc-zuul.iml" />
+    </modules>
+  </component>
+</project>

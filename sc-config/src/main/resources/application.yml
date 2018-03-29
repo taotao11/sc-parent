@@ -1,0 +1,22 @@
+server:
+  port: 8760
+
+spring:
+#服务名称
+  application:
+    name: sc-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/ttchl/config.git
+#Eureka配置
+eureka:
+  instance:
+#使用ip显示
+    prefer-ip-address: true
+    instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+

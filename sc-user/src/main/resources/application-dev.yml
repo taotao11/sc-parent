@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: sc-user
+ # 数据源 配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/taotao?characterEncoding=utf-8
+    username: root
+    password: root
+    initialSize: 10
+    minIdle: 10
+    maxActive: 50
+    #配置连接在池中的最小生存时间
+    minEvictableIdleTimeMillis: 30000000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+  #redis配置
+  redis:
+    host: 127.0.0.1:3306
+    password: null
+    database: 7
+    timeout: 1800
+    pool:
+      max-active: 8
+      min-idle: 0
+      max-idle: 0
+      max-wait: -1
+#  mail:
+#    host: smtp.qq.com
+#    username: angularliu@qq.com
+#    password: null
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: false
+#            required: false
+server:
+  port: 8081
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+
+#mybatis plus
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.cloud.entity
+  #下面是一些全局的配置
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 1
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #序列接口实现类配置
+    #key-generator: com.baomidou.springboot.xxx
+    #逻辑删除配置
+    #logic-delete-value: 0
+    #logic-not-delete-value: 1
+    #自定义填充策略接口实现,注意这里，如果传入参数为空，上面又进行了非空判断field-strategy=2，就会无效，所以这里不用这个
+#    meta-object-handler: com.mybatis.plus.config.mybatisplus.MyMetaObjectHandler
+    #自定义SQL注入器
+    #sql-injector: com.baomidou.springboot.xxx
+  configuration:
+      #开启驼峰转换
+      map-underscore-to-camel-case: true
+      #关闭缓存
+      cache-enabled: false

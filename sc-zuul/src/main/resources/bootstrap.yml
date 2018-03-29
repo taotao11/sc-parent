@@ -1,0 +1,23 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+    instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+      
+spring:
+  application:
+    name: sc-zuul
+#  cloud:
+#    config:
+#      fail-fast: true
+#      discovery:
+#        service-id: sc-config
+#        enabled: true
+#      name: zuul  #读取zuul-dev.yml
+#      profile: dev
+#      label: master
+  profiles:
+    active: dev
+    

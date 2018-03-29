@@ -1,0 +1,89 @@
+server:
+  port: 8765
+
+
+zuul:
+  routes:
+    ignoredServices: '*' #拦截
+    host:
+      connect-timeout-millis: 20000
+      socket-timeout-millis: 20000
+    sc-user: #指定连接
+      path: /sc-user/**
+      serviceId: sc-user
+      stripPrefix: true
+      sensitive-headers:
+    sc-auth:
+      path: /sc-auth/**
+      serviceId: sc-auth
+      stripPrefix: true
+      sensitive-headers:
+  host:
+     connect-timeout-millis: 60000
+     socket-timeout-millis: 60000
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 60000
+  ConnectTimeout: 60000    #设置ribben超时时间
+
+#hystrix配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE       #通过信号量
+          thread:
+            timeoutInMilliseconds: 60000      #超时时间
+#feign配置
+feign:
+  compression:
+    request:
+      enabled: true    #开启请求压缩
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+  
+#security:
+#    oauth2:
+#      client:
+#        client-id: res-client
+#        client-secret: res-secret
+#        scope: read,write
+#        auto-approve-scopes: '.*'
+#        grant-type: password
+#    user:
+#        name: admin
+#        password: admin
+#        role: USER
+
+spring:
+  #redis配置
+    redis:
+      host: 127.0.0.1           #222.179.219.231
+      password: null
+      database: 7
+      timeout: 1800
+      pool:
+        max-active: 8
+        min-idle: 0
+        max-idle: 0
+        max-wait: -1
+
+
+#security:
+#  sessions: stateless
+#  oauth2:
+#    resource:
+#      loadBalanced: true
+#      user-info-uri: http://res-auth/user
+#      prefer-token-info: false
+#      service-id: res-gate
+#  basic:
+#    enabled: false
+
+
+  

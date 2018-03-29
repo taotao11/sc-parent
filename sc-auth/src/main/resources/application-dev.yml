@@ -1,0 +1,47 @@
+server:
+  port: 8766
+spring:
+  #redis配置
+  redis:
+    host: 127.0.0.1            #222.179.219.231
+    password: null
+    database: 7
+    timeout: 1800
+    pool:
+      max-active: 8
+      min-idle: 0
+      max-idle: 0
+      max-wait: -1
+#  mail:
+#    host: smtp.qq.com
+#    username: angularliu@qq.com
+#    password: null
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: false
+#            required: false
+  
+#开启ribbon      
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+#feign相关设置,开启对hystrix的支持,默认是关闭的
+feign:
+  hystrix:
+    enabled: true
+
+#hystrix相关配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE   #将线程隔离设置为SEMAPHORE,信号量
+          thread:
+            timeoutInMilliseconds: 60000    #超时时间（默认1000ms，单位：ms）

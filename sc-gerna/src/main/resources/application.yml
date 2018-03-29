@@ -1,0 +1,21 @@
+server:
+  port: 8082
+spring:
+  application:
+      name: sc-gerna
+   #  ˝æ›‘¥ ≈‰÷√
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?characterEncoding=utf-8
+    username: root
+    password: root
+    initialSize: 10
+    minIdle: 10
+    maxActive: 50
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
