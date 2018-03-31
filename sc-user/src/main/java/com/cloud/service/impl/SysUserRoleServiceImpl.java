@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @author taotao
  * @since 2018-03-29
  */
-@Service
+@Service("sysUserRoleService")
 public class SysUserRoleServiceImpl extends SuperServiceImpl<SysUserRoleMapper, SysUserRole> implements SysUserRoleService {
 
 }

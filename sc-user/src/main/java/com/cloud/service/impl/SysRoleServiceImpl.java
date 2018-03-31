@@ -1,10 +1,17 @@
 package com.cloud.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.cloud.entity.SysRole;
+import com.cloud.entity.SysUserRole;
 import com.cloud.mapper.SysRoleMapper;
 import com.cloud.service.SysRoleService;
 import com.cloud.ctl.service.impl.SuperServiceImpl;
+import com.cloud.service.SysUserRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -14,7 +21,27 @@ import org.springframework.stereotype.Service;
  * @author taotao
  * @since 2018-03-29
  */
-@Service
+@Service("sysRoleService")
 public class SysRoleServiceImpl extends SuperServiceImpl<SysRoleMapper, SysRole> implements SysRoleService {
 
+    @Autowired
+    private SysRoleService sysRoleService;
+    @Autowired
+    private SysUserRoleService sysUserRoleService;
+
+    /**
+     * 查询用户对应的角色
+     * @param id
+     * @return
+     */
+    public List<SysRole> findByUid(long id){
+        List<Long> roleIds = new ArrayList<Long>();
+        //查询关联表
+        List<SysUserRole> list = sysUserRoleService.selectList(new EntityWrapper<SysUserRole>()
+                .eq("uid",id));
+        //java8 新特性
+        list.forEach((SysUserRole sys) -> roleIds.add(sys.getRoleId()));
+        List<SysRole> sysRoleList = sysRoleService.selectBatchIds(roleIds);
+        return sysRoleList;
+    }
 }

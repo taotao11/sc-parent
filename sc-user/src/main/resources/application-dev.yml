@@ -4,13 +4,13 @@ spring:
  # 数据源 配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/taotao?characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/security?characterEncoding=utf-8
     username: root
     password: root
     initialSize: 10
     minIdle: 10
     maxActive: 50
-    #配置连接在池中的最小生存时间
+#    配置连接在池中的最小生存时间
     minEvictableIdleTimeMillis: 30000000
     validationQuery: SELECT 1 FROM DUAL
     testWhileIdle: true

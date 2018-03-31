@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vo.user.UserVo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -40,7 +41,11 @@ public class UserInfoFeign {
         //对象复制
         BeanUtils.copyProperties(info,rUserVo);
         //查询角色
-//        List<SysRole> sysRoleList = sysRoleService.selectList(new EntityWrapper<SysRole>().eq());
-      return null;
+       List<SysRole> sysRoleList = sysRoleService.findByUid(info.getUid());
+       List<String> roles = new ArrayList<>();
+
+       sysRoleList.forEach(role -> {if (role.getRole() != null && !role.getRole().equals("")) roles.add(role.getRole()); });
+       rUserVo.setRoleList(roles);
+      return rUserVo;
     }
 }
