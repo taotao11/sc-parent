@@ -10,6 +10,7 @@
     <modules>
         <module>sc-eureka</module>
         <module>sc-user</module>
+        <module>sc-gerna</module>
         <module>sc-config</module>
         <module>sc-zuul</module>
         <module>sc-common</module>

@@ -1,8 +1,8 @@
-package com.cloud.service.impl;
+package com.cloud.scgerna.service.impl;
 
-import com.cloud.entity.UserInfo;
-import com.cloud.mapper.UserInfoMapper;
-import com.cloud.service.UserInfoService;
+import com.cloud.scgerna.entity.UserInfo;
+import com.cloud.scgerna.mapper.UserInfoMapper;
+import com.cloud.scgerna.service.UserInfoService;
 import com.cloud.ctl.service.impl.SuperServiceImpl;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
