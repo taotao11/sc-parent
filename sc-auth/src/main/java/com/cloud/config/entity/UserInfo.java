@@ -1,4 +1,4 @@
-package com.cloud.auth.entity;
+package com.cloud.config.entity;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,19 +19,46 @@ import java.util.List;
 public class UserInfo implements UserDetails,Serializable {
     private String username;
     private String password;
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     private List<String> roleList;
 
+    /**
+     * 放置密码 用户名
+     * @param tUser
+     */
     public UserInfo(UserVo tUser) {
-        this.username = tUser.getAccount().trim();
+        this.username = tUser.getName().trim();
         this.password = tUser.getPassword().trim();
         roleList = tUser.getRoleList();
     }
 
+    /**
+     * 授权
+     * @return
+     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<>();
         //java8循环写法
-        roleList.forEach(role ->grantedAuthorityList.add(new SimpleGrantedAuthority(role)));
+        grantedAuthorityList.add(new SimpleGrantedAuthority("USER"));
         return grantedAuthorityList;
     }
 

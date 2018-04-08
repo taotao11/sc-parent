@@ -14,8 +14,8 @@ zuul:
       stripPrefix: true
       sensitive-headers:
     sc-auth:
-      path: /sc-auth/**
-      serviceId: sc-auth
+      path: /sc-config/**
+      serviceId: sc-config
       stripPrefix: true
       sensitive-headers:
   host:

@@ -12,11 +12,12 @@ import org.springframework.stereotype.Service;
  *  服务实现类
  * </p>
  *
- * @author taotao
- * @since 2018-03-29
+ * @author taotao123
+ * @since 2018-04-06
  */
+//spring 一个接口别多个实现类实现时 添加 Primary 注解
 @Primary
-@Service("userInfoService")
+@Service
 public class UserInfoServiceImpl extends SuperServiceImpl<UserInfoMapper, UserInfo> implements UserInfoService {
 
 }

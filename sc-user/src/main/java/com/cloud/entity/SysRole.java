@@ -1,7 +1,11 @@
 package com.cloud.entity;
 
+import java.io.Serializable;
+
 import com.baomidou.mybatisplus.enums.IdType;
+import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
@@ -11,8 +15,8 @@ import java.io.Serializable;
  * 
  * </p>
  *
- * @author taotao
- * @since 2018-03-29
+ * @author taotao123
+ * @since 2018-04-06
  */
 @TableName("sys_role")
 public class SysRole extends Model<SysRole> {
@@ -21,9 +25,15 @@ public class SysRole extends Model<SysRole> {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    private Boolean available;
-    private String description;
+    private String remark;
+    private String title;
     private String role;
+    @TableField("creat_time")
+    private Date creatTime;
+    @TableField("update_time")
+    private Date updateTime;
+    @TableField("is_delete")
+    private Integer isDelete;
 
 
     public Long getId() {
@@ -34,20 +44,20 @@ public class SysRole extends Model<SysRole> {
         this.id = id;
     }
 
-    public Boolean getAvailable() {
-        return available;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setAvailable(Boolean available) {
-        this.available = available;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTitle() {
+        return title;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getRole() {
@@ -56,6 +66,30 @@ public class SysRole extends Model<SysRole> {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Date getCreatTime() {
+        return creatTime;
+    }
+
+    public void setCreatTime(Date creatTime) {
+        this.creatTime = creatTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Integer getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
     }
 
     @Override
@@ -67,9 +101,12 @@ public class SysRole extends Model<SysRole> {
     public String toString() {
         return "SysRole{" +
         ", id=" + id +
-        ", available=" + available +
-        ", description=" + description +
+        ", remark=" + remark +
+        ", title=" + title +
         ", role=" + role +
+        ", creatTime=" + creatTime +
+        ", updateTime=" + updateTime +
+        ", isDelete=" + isDelete +
         "}";
     }
 }

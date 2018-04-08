@@ -1,6 +1,9 @@
 package com.cloud.entity;
 
+import java.io.Serializable;
+
 import com.baomidou.mybatisplus.enums.IdType;
+import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
@@ -12,8 +15,8 @@ import java.io.Serializable;
  * 
  * </p>
  *
- * @author taotao
- * @since 2018-03-29
+ * @author taotao123
+ * @since 2018-04-06
  */
 @TableName("sys_permission")
 public class SysPermission extends Model<SysPermission> {
@@ -22,16 +25,17 @@ public class SysPermission extends Model<SysPermission> {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    private Boolean available;
     private String name;
+    private String url;
     @TableField("parent_id")
     private Long parentId;
-    @TableField("parent_ids")
-    private String parentIds;
-    private String permission;
-    @TableField("resource_type")
-    private String resourceType;
-    private String url;
+    private Integer type;
+    private String icon;
+    private Integer isdelete;
+    private String title;
+    @TableField("creat_time")
+    private Date creatTime;
+    private Date update;
 
 
     public Long getId() {
@@ -42,20 +46,20 @@ public class SysPermission extends Model<SysPermission> {
         this.id = id;
     }
 
-    public Boolean getAvailable() {
-        return available;
-    }
-
-    public void setAvailable(Boolean available) {
-        this.available = available;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Long getParentId() {
@@ -66,36 +70,52 @@ public class SysPermission extends Model<SysPermission> {
         this.parentId = parentId;
     }
 
-    public String getParentIds() {
-        return parentIds;
+    public Integer getType() {
+        return type;
     }
 
-    public void setParentIds(String parentIds) {
-        this.parentIds = parentIds;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    public String getPermission() {
-        return permission;
+    public String getIcon() {
+        return icon;
     }
 
-    public void setPermission(String permission) {
-        this.permission = permission;
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
-    public String getResourceType() {
-        return resourceType;
+    public Integer getIsdelete() {
+        return isdelete;
     }
 
-    public void setResourceType(String resourceType) {
-        this.resourceType = resourceType;
+    public void setIsdelete(Integer isdelete) {
+        this.isdelete = isdelete;
     }
 
-    public String getUrl() {
-        return url;
+    public String getTitle() {
+        return title;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Date getCreatTime() {
+        return creatTime;
+    }
+
+    public void setCreatTime(Date creatTime) {
+        this.creatTime = creatTime;
+    }
+
+    public Date getUpdate() {
+        return update;
+    }
+
+    public void setUpdate(Date update) {
+        this.update = update;
     }
 
     @Override
@@ -107,13 +127,15 @@ public class SysPermission extends Model<SysPermission> {
     public String toString() {
         return "SysPermission{" +
         ", id=" + id +
-        ", available=" + available +
         ", name=" + name +
-        ", parentId=" + parentId +
-        ", parentIds=" + parentIds +
-        ", permission=" + permission +
-        ", resourceType=" + resourceType +
         ", url=" + url +
+        ", parentId=" + parentId +
+        ", type=" + type +
+        ", icon=" + icon +
+        ", isdelete=" + isdelete +
+        ", title=" + title +
+        ", creatTime=" + creatTime +
+        ", update=" + update +
         "}";
     }
 }

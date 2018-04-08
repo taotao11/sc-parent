@@ -5,6 +5,7 @@ import com.cloud.entity.SysRole;
 import com.cloud.entity.UserInfo;
 import com.cloud.service.SysRoleService;
 import com.cloud.service.UserInfoService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import java.util.List;
 /**
  * 用户信息提供者
  */
+@Slf4j
 @RestController
 @RequestMapping("/userFeign")
 public class UserInfoFeign {
@@ -41,10 +43,9 @@ public class UserInfoFeign {
         //对象复制
         BeanUtils.copyProperties(info,rUserVo);
         //查询角色
-       List<SysRole> sysRoleList = sysRoleService.findByUid(info.getUid());
-       List<String> roles = new ArrayList<>();
-
-       sysRoleList.forEach(role -> {if (role.getRole() != null && !role.getRole().equals("")) roles.add(role.getRole()); });
+        List<String> roles = sysRoleService.findRolesByUid(info.getUid());
+        log.info("roles: {}",roles);
+//       sysRoleList.forEach(role -> {if (role.getRole() != null && !role.getRole().equals("")) roles.add(role.getRole()); });
        rUserVo.setRoleList(roles);
       return rUserVo;
     }

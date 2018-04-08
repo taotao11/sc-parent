@@ -8,8 +8,8 @@ import com.cloud.ctl.service.SuperService;
  *  服务类
  * </p>
  *
- * @author taotao
- * @since 2018-03-29
+ * @author taotao123
+ * @since 2018-04-06
  */
 public interface UserInfoService extends SuperService<UserInfo> {
 

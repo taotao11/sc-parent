@@ -256,8 +256,10 @@ public class SuperController <BaseServiceImpl extends SuperService,T, PK extends
             Field idField = clazz.getDeclaredField(fieldName);
             //设置更新时间
             if (idField!=null){
+                //反射中要对属性值进行更改 必须设置 idField.setAccessible(true)
                 //开启对私有字段进行设置值
                 idField.setAccessible(true);
+                /* 改变 属性对应的 值 */
                 idField.set(entity, value);
             }
         } catch (Exception e) {
@@ -278,6 +280,8 @@ public class SuperController <BaseServiceImpl extends SuperService,T, PK extends
         //空处理
         if (StringUtils.isBlank(fieldName)) b = false;
         try {
+            //反射 field 为类中的属性
+            //clazz.getDeclaredField(fieldName); 得到一个属性 没有则为空
             Field idField = clazz.getDeclaredField(fieldName);
             //设置更新时间
             if (idField!=null){

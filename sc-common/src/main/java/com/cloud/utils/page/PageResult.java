@@ -3,7 +3,12 @@ package com.cloud.utils.page;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 自定义mybatis 返回类
+ * @param <F>
+ */
 public class PageResult<F> {
+    //collection.emptyList() 一个空的 List 不能用add 方法
     private List<F> datas = Collections.emptyList();
     private int totle = 0;
 

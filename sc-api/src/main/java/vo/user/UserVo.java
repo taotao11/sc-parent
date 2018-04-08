@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -13,77 +14,42 @@ public class UserVo implements Serializable{
      */
     private Long id;
     /**
-     * 账号
-     */
-    private String account;
-    /**
      * 密码
      */
     private String password;
-    /**
-     * 身份证号码
-     */
-    private String idcard;
-    /**
-     * 昵称
-     */
-    private String nickname;
     /**
      * 姓名
      */
     private String name;
     /**
-     * 性别
-     */
-    private String gender;
-    /**
      * 常用手机号码
      */
-    private String usualmobile;
-    /**
-     * 备用手机号码
-     */
-    private String sparemobile;
-    /**
-     * 办公电话
-     */
-    private String officephone;
-    /**
-     * qq
-     */
-    private String qq;
-    /**
-     * 微信
-     */
-    private String wechat;
-    /**
-     * 微博账号
-     */
-    private String microblog;
+    private String ipone;
+
     /**
      * 邮箱地址
      */
     private String email;
     /**
-     * 地址
+     * 创建时间
      */
-    private String address;
+    private Date creatTime;
     /**
-     * 出生日期
+     * 修改时间
      */
-    private String birthday;
+    private Date updateTime;
     /**
-     * 排序
+     * 是否删除
      */
-    private Integer sorting;
+    private Integer isDelete;
     /**
-     * 用户类型
+     * 类型
      */
     private Integer type;
     /**
-     * 备注
+     * 父id
      */
-    private String remark;
+    private Long prentUid;
     /**
      * 角色列表
      */

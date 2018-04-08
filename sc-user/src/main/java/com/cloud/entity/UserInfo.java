@@ -1,7 +1,11 @@
 package com.cloud.entity;
 
+import java.io.Serializable;
+
 import com.baomidou.mybatisplus.enums.IdType;
+import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
@@ -11,8 +15,8 @@ import java.io.Serializable;
  * 
  * </p>
  *
- * @author taotao
- * @since 2018-03-29
+ * @author taotao123
+ * @since 2018-04-06
  */
 @TableName("user_info")
 public class UserInfo extends Model<UserInfo> {
@@ -23,9 +27,18 @@ public class UserInfo extends Model<UserInfo> {
     private Long uid;
     private String name;
     private String password;
-    private String salt;
-    private Integer state;
-    private String username;
+    private String ipone;
+    private String email;
+    //@TableField("creat_time") 对应数据库字段名
+    @TableField("creat_time")
+    private Date creatTime;
+    @TableField("update_time")
+    private Date updateTime;
+    @TableField("is_delete")
+    private Integer isDelete;
+    private Integer type;
+    @TableField("prent_uid")
+    private Long prentUid;
 
 
     public Long getUid() {
@@ -52,28 +65,60 @@ public class UserInfo extends Model<UserInfo> {
         this.password = password;
     }
 
-    public String getSalt() {
-        return salt;
+    public String getIpone() {
+        return ipone;
     }
 
-    public void setSalt(String salt) {
-        this.salt = salt;
+    public void setIpone(String ipone) {
+        this.ipone = ipone;
     }
 
-    public Integer getState() {
-        return state;
+    public String getEmail() {
+        return email;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public Date getCreatTime() {
+        return creatTime;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCreatTime(Date creatTime) {
+        this.creatTime = creatTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Integer getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Long getPrentUid() {
+        return prentUid;
+    }
+
+    public void setPrentUid(Long prentUid) {
+        this.prentUid = prentUid;
     }
 
     @Override
@@ -87,9 +132,13 @@ public class UserInfo extends Model<UserInfo> {
         ", uid=" + uid +
         ", name=" + name +
         ", password=" + password +
-        ", salt=" + salt +
-        ", state=" + state +
-        ", username=" + username +
+        ", ipone=" + ipone +
+        ", email=" + email +
+        ", creatTime=" + creatTime +
+        ", updateTime=" + updateTime +
+        ", isDelete=" + isDelete +
+        ", type=" + type +
+        ", prentUid=" + prentUid +
         "}";
     }
 }

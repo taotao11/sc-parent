@@ -1,6 +1,6 @@
-package com.cloud.auth.feign;
+package com.cloud.config.feign;
 
-import com.cloud.auth.feign.impl.UserServiceFallbackFactory;
+import com.cloud.config.feign.impl.UserServiceFallbackFactory;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ import vo.user.UserVo;
  * fallbackFactory 熔断机制
  * 远程调用
  */
-@FeignClient(value = "sc-gerna",fallbackFactory = UserServiceFallbackFactory.class)
+@FeignClient(value = "sc-user",fallbackFactory = UserServiceFallbackFactory.class)
 public interface UserService  {
 
     //查询用户

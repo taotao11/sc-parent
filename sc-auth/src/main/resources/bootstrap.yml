@@ -7,14 +7,14 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka/
 spring:
   application:
-    name: sc-auth
+    name: sc-config
   cloud:
     config:
       fail-fast: true
       discovery:
         service-id: sc-config
         enabled: true
-      name: auth  #读取auth-dev.yml
+      name: config  #读取auth-dev.yml
       profile: dev
       label: master
   profiles:

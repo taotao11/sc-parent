@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
  *  服务实现类
  * </p>
  *
- * @author taotao
- * @since 2018-03-29
+ * @author taotao123
+ * @since 2018-04-06
  */
-@Service("sysRolePermissionService")
+@Service
 public class SysRolePermissionServiceImpl extends SuperServiceImpl<SysRolePermissionMapper, SysRolePermission> implements SysRolePermissionService {
 
 }

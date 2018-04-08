@@ -5,18 +5,26 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.cloud.entity.SysPermission">
         <id column="id" property="id" />
-        <result column="available" property="available" />
         <result column="name" property="name" />
-        <result column="parent_id" property="parentId" />
-        <result column="parent_ids" property="parentIds" />
-        <result column="permission" property="permission" />
-        <result column="resource_type" property="resourceType" />
         <result column="url" property="url" />
+        <result column="parent_id" property="parentId" />
+        <result column="type" property="type" />
+        <result column="icon" property="icon" />
+        <result column="isdelete" property="isdelete" />
+        <result column="title" property="title" />
+        <result column="creat_time" property="creatTime" />
+        <result column="update" property="update" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, available, name, parent_id AS parentId, parent_ids AS parentIds, permission, resource_type AS resourceType, url
+        id, name, url, parent_id AS parentId, type, icon, isdelete, title, creat_time AS creatTime, update
     </sql>
+
+    <!--通过role 查 资源信息-->
+    <select id="findPermissionsByRole" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT * FROM sys_permission p LEFT JOIN sys_role_permission s ON p.id = s.permission_id WHERE s.permission_id
+        IN (SELECT sys_role.id FROM sys_role  WHERE sys_role.role = #{role} )
+    </select>
 
 </mapper>

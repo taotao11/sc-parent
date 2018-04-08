@@ -8,8 +8,8 @@ import com.cloud.ctl.mapper.SuperMapper;
  *  Mapper 接口
  * </p>
  *
- * @author taotao
- * @since 2018-03-29
+ * @author taotao123
+ * @since 2018-04-06
  */
 public interface UserInfoMapper extends SuperMapper<UserInfo> {
 

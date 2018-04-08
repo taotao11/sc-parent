@@ -1,6 +1,6 @@
-package com.cloud.auth.feign.impl;
+package com.cloud.config.feign.impl;
 
-import com.cloud.auth.feign.UserService;
+import com.cloud.config.feign.UserService;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
