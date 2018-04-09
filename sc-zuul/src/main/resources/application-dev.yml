@@ -8,14 +8,14 @@ zuul:
     host:
       connect-timeout-millis: 20000
       socket-timeout-millis: 20000
-    sc-user: #指定连接
-      path: /sc-user/**
-      serviceId: sc-user
-      stripPrefix: true
-      sensitive-headers:
+#    sc-user: #指定连接
+#      path: /sc-user/**
+#      serviceId: sc-user
+#      stripPrefix: true
+#      sensitive-headers:
     sc-auth:
-      path: /sc-config/**
-      serviceId: sc-config
+      path: /sc-auth/**
+      serviceId: sc-auth
       stripPrefix: true
       sensitive-headers:
   host:
@@ -46,19 +46,6 @@ feign:
       min-request-size: 2048
     response:
       enabled: true
-  
-#security:
-#    oauth2:
-#      client:
-#        client-id: res-client
-#        client-secret: res-secret
-#        scope: read,write
-#        auto-approve-scopes: '.*'
-#        grant-type: password
-#    user:
-#        name: admin
-#        password: admin
-#        role: USER
 
 spring:
   #redis配置
@@ -72,7 +59,6 @@ spring:
         min-idle: 0
         max-idle: 0
         max-wait: -1
-
 
 #security:
 #  sessions: stateless

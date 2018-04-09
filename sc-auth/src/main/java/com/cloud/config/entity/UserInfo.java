@@ -58,7 +58,7 @@ public class UserInfo implements UserDetails,Serializable {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<>();
         //java8循环写法
-        grantedAuthorityList.add(new SimpleGrantedAuthority("USER"));
+        roleList.forEach(s -> grantedAuthorityList.add(new SimpleGrantedAuthority(s)));
         return grantedAuthorityList;
     }
 
